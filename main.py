@@ -6,11 +6,13 @@ app.config["JSON_AS_ASCII"] = False  # 日本語などのASCII以外の文字列
 # http://127.0.0.1:5000/
 @app.route('/upload',methods=['POST','GET'])
 def upload_kanryou():
-    # if request.method=='GET':
-    #     return render_template('upload_page.html')
-    if request.method=='POST':
-        # file=request.files=['test']
-        # file.save(os.path.join('./static'),'a')
+    if request.method=='GET':
+        return render_template('upload_page.html')
+    elif request.method=='POST':
+        file=request.files['test']
+        
+        file_path=os.path.join("./upload_image",file.filename)
+        file.save(file_path)
         return render_template("upload_page.html",message="アップロード完了")
 
 # http://127.0.0.1:5000/
