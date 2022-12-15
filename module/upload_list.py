@@ -1,7 +1,7 @@
 import glob
 
 def add_image() -> str:
-    dir = '../upload_imag/*.jpg'
+    dir = '../upload_image/*.jpg'
     count_file = 0
     index = []
     files = glob.glob(dir)
